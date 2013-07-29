@@ -84,7 +84,7 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<simplecov>, [">= 0"])
       s.add_development_dependency(%q<rspec>, [">= 0"])
     else
-      s.add_dependency(%q<nokogiri>, ["~> 1.5.0"])
+      s.add_dependency(%q<nokogiri>, ["~> 1.6.0"])
       s.add_dependency(%q<thor>, [">= 0.16.0"])
       s.add_dependency(%q<json>, [">= 0"])
       s.add_dependency(%q<terminal-table>, [">= 1.4.0"])
@@ -95,7 +95,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<rspec>, [">= 0"])
     end
   else
-    s.add_dependency(%q<nokogiri>, ["~> 1.5.0"])
+    s.add_dependency(%q<nokogiri>, ["~> 1.6.0"])
     s.add_dependency(%q<thor>, [">= 0.16.0"])
     s.add_dependency(%q<json>, [">= 0"])
     s.add_dependency(%q<terminal-table>, [">= 1.4.0"])
