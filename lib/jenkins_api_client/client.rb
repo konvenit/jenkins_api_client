@@ -47,6 +47,7 @@ module JenkinsApi
     # Parameters that are permitted as options while initializing the client
     VALID_PARAMS = [
       "server_url",
+      "server_host",
       "server_ip",
       "server_port",
       "proxy_ip",
@@ -134,7 +135,7 @@ module JenkinsApi
       # Get info from the server_url, if we got one
       if @server_url
         server_uri = URI.parse(@server_url)
-        @server_ip = server_uri.host
+        @server_ip, @server_host = server_uri.host
         @server_port = server_uri.port
         @ssl = server_uri.scheme == "https"
         @jenkins_path = server_uri.path
@@ -253,6 +254,10 @@ module JenkinsApi
       if @ssl
         http.use_ssl = true
         http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+      end
+
+      if @server_host
+        request.initialize_http_header({"Host" => @server_host})
       end
 
       response = http.request(request)
